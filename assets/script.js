@@ -1,5 +1,5 @@
 // Array of special characters to be included in password
-var specialCharacters = [
+let specialCharacters = [
   '@',
   '%',
   '+',
@@ -26,10 +26,10 @@ var specialCharacters = [
 ];
 
 // Array of numeric characters to be included in password
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
+let lowerCasedCharacters = [
   'a',
   'b',
   'c',
@@ -59,7 +59,7 @@ var lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+let upperCasedCharacters = [
   'A',
   'B',
   'C',
@@ -93,14 +93,16 @@ function getPasswordOptions() {
 
 }
 
-// Function for getting a random element from an array
-function getRandom(arr) {
+function getNumber(arr) {
+  return arr[Math.floor(Math.random()*arr.length)];
+}; 
 
-}
+
+// Function for getting a random element from an array
 
 // Function to generate password with user input
 function generatePassword() {
-
+  return getNumber(numericCharacters);
 }
 
 // Get references to the #generate element
@@ -116,23 +118,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-
-//CODE FROM THE COLOR GENERATOR
-//const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
-//const btn = document.getElementById("btn");
-//const color = document.querySelector(".color");
-
-//btn.addEventListener("click", function() {
-//let hexColor = '#';
-//for (let i = 0; i < 6; i++) {
-//    hexColor += hex[getRandomNumber()];
-//}
-//color.textContent = hexColor;
-//document.body.style.backgroundColor = hexColor;
-//});
-
-//function getRandomNumber (){
-//    return Math.floor(Math.random()* hex.length)
-//}

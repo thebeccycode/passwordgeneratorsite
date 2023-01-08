@@ -90,7 +90,7 @@ let upperCasedCharacters = [
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  return arr[Math.floor(Math.random()*arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)];
 };
 
 // Function to generate password with user input
@@ -116,16 +116,16 @@ console.log(getRandom(lowerCasedCharacters));
 console.log(getRandom(upperCasedCharacters));
 console.log(getRandom(specialCharacters));
 
-// Get references to the #generate element
-let generateBtn = document.querySelector('#generate');
+let password = document.getElementById("password");
 
-// Write password to the #password input
-//function writePassword() {
- // var password = generatePassword();
- // var passwordText = document.querySelector('#password');
+let generatedPassword = numericCharacters.concat(upperCasedCharacters + lowerCasedCharacters + specialCharacters );
 
-  //passwordText.value = password;
-//}
-
-// Add event listener to generate button
-//generateBtn.addEventListener('click', //writePassword);
+function generatePassword(){
+  let passwordLength = 10;
+  let password = ""; 
+  for (let i= 0; index < passwordLength; index++) {
+    let randomNumber = Math.floor(Math.random()* generatedPassword.length);
+    password += generatedPassword.substring(randomNumber, randomNumber +54);
+  };
+  document.getElementById("password").value = password;
+};

@@ -10,7 +10,6 @@ let uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 
 //functions  for retrieving a random element
 
-
 let generateSpecial = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
 
 let generateNumber = numberCharacters[Math.floor(Math.random() * numberCharacters.length)];
@@ -18,6 +17,10 @@ let generateNumber = numberCharacters[Math.floor(Math.random() * numberCharacter
 let generateLower = lowercase[Math.floor(Math.random() * lowercase.length)];
 
 let generateUpper = uppercase[Math.floor(Math.random() * lowercase.length)];
+
+let generateMixed = specialCharacters.concat(numberCharacters);
+let generateMixedAgain = generateMixed.concat(lowercase);
+let generateFinalMix = generateMixedAgain.concat(uppercase);
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -31,6 +34,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+    return generateMixed;
 
 }
 

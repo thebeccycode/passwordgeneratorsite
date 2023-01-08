@@ -88,33 +88,44 @@ let upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {
-
-}
-
-function getNumber(arr) {
-  return arr[Math.floor(Math.random()*arr.length)];
-}; 
-
-
 // Function for getting a random element from an array
+function getRandom(arr) {
+  return arr[Math.floor(Math.random()*arr.length)];
+};
 
 // Function to generate password with user input
-function generatePassword() {
-  return getNumber(numericCharacters);
-}
+function generateRandomNumber() {
+  return getRandom(numericCharacters);
+};
+
+function generateRandomLower() {
+  return getRandom(lowerCasedCharacters);
+};
+
+function generateRandomUpper() {
+  return getRandom(upperCasedCharacters);
+};
+
+function generateRandomSpecial() {
+  return getRandom(specialCharacters);
+};
+
+//consolelog checks
+console.log(getRandom(numericCharacters));
+console.log(getRandom(lowerCasedCharacters));
+console.log(getRandom(upperCasedCharacters));
+console.log(getRandom(specialCharacters));
 
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+let generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+//function writePassword() {
+ // var password = generatePassword();
+ // var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
-}
+  //passwordText.value = password;
+//}
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+//generateBtn.addEventListener('click', //writePassword);

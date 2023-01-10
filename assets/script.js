@@ -58,7 +58,7 @@ let lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+let upperCasedCharacters = [
   'A',
   'B',
   'C',
@@ -94,13 +94,13 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
-}
+    return arr[Math.floor(Math.random()*arr.length)];
+  }; 
 
 // Function to generate password with user input
 function generatePassword() {
-
-}
+  return getRandom(numericCharacters);
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -111,7 +111,7 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);

@@ -86,11 +86,22 @@ let upperCasedCharacters = [
   'Y',
   'Z'
 ];
-let validCharacters = "";
+let validCharacters = [];
 // Function to prompt user for password options
+let passwordLength = 0;
+let includeLC = false;
+let includeUC = false;
+let includeSC = false;
+let includeNC = false;
 
 function getPasswordOptions() {
-let passwordLength = parseInt(prompt("password length 10-64"));
+  validCharacters = [];
+  passwordLength = 0;
+  includeLC = false;
+includeUC = false;
+includeSC = false;
+includeNC = false;
+passwordLength = parseInt(prompt("password length 10-64"));
 if (Number.isNaN(passwordLength)){
   alert("Password length must be between 10-64 characters");
   getPasswordOptions();
@@ -102,24 +113,24 @@ if (passwordLength < 10 || passwordLength > 64){
 console.log("passwordLength=", passwordLength);
 
 
-let includeLC = confirm("press OK to include lowercase characters");
+includeLC = confirm("press OK to include lowercase characters");
 if (includeLC){
-validCharacters += lowerCasedCharacters;
+validCharacters = validCharacters.concat(lowerCasedCharacters);
 }
 
-let includeUC = confirm("press OK to include uppercase characters");
+includeUC = confirm("press OK to include uppercase characters");
 if (includeUC){
-validCharacters += upperCasedCharacters;
+validCharacters = validCharacters.concat(upperCasedCharacters);
 }
 
-let includeSC = confirm("press OK to include special characters");
+includeSC = confirm("press OK to include special characters");
 if (includeSC){
-validCharacters += specialCharacters;
+validCharacters = validCharacters.concat(specialCharacters);
 }
 
-let includeNC = confirm("press OK to include numbers");
+includeNC = confirm("press OK to include numbers");
 if (includeNC){
-validCharacters += numericCharacters;
+validCharacters = validCharacters.concat(specialCharacters);
 }
 
 if (includeLC === false &&
@@ -153,9 +164,15 @@ function getRandom(arr) {
     console.log("generatePassword function");
     let options = getPasswordOptions();
     console.log("options = ", options);
+    console.log("validCharacters =", validCharacters);
 
-    
-    return getRandom(numericCharacters);
+    let password = "";
+    let randomIndex = 0;
+    for (let i = 0; i < options.length; i++){
+      randomIndex = Math.floor(Math.random() * validCharacters.length);
+      password += validCharacters[randomIndex];
+    }
+    return password;
   };
 
 

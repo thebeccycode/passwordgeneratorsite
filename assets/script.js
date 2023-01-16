@@ -86,9 +86,50 @@ let upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+let validCharacters = "";
 // Function to prompt user for password options
+
 function getPasswordOptions() {
+let passwordLength = parseInt(prompt("password length 10-64"));
+if (Number.isNaN(passwordLength)){
+  alert("Password length must be between 10-64 characters");
+  getPasswordOptions();
+}
+if (passwordLength < 10 || passwordLength > 64){
+  alert("Password length must be between 10-64 characters");
+  getPasswordOptions();
+}
+console.log("passwordLength=", passwordLength);
+
+
+let includeLC = confirm("press OK to include lowercase characters");
+if (includeLC){
+validCharacters += lowerCasedCharacters;
+}
+
+let includeUC = confirm("press OK to include uppercase characters");
+if (includeUC){
+validCharacters += upperCasedCharacters;
+}
+
+let includeSC = confirm("press OK to include special characters");
+if (includeSC){
+validCharacters += specialCharacters;
+}
+
+let includeNC = confirm("press OK to include numbers");
+if (includeNC){
+validCharacters += numericCharacters;
+}
+
+if (includeLC === false &&
+     includeUC === false &&
+     includeNC === false &&
+     includeSC === false){
+      alert("at least one character type must be chosen");
+      getPasswordOptions();
+     }
+
 
 }
 
@@ -98,10 +139,17 @@ function getRandom(arr) {
   }; 
 
 // Function to generate password with user input
-function generatePassword() {
-  return getRandom(numericCharacters);
-};
 
+  function generatePassword() {
+    console.log("generatePassword function");
+    let options = getPasswordOptions();
+    return getRandom(numericCharacters);
+  };
+
+
+
+ 
+  
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 

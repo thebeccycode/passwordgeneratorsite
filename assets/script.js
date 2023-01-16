@@ -130,6 +130,15 @@ if (includeLC === false &&
       getPasswordOptions();
      }
 
+let options = {
+  length:passwordLength,
+  includeLC: includeLC,
+  includeUC: includeUC,
+  includeNC: includeNC,
+  includeSC: includeSC
+};
+
+return options;
 
 }
 
@@ -143,6 +152,9 @@ function getRandom(arr) {
   function generatePassword() {
     console.log("generatePassword function");
     let options = getPasswordOptions();
+    console.log("options = ", options);
+
+    
     return getRandom(numericCharacters);
   };
 
